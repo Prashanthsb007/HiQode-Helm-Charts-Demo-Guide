@@ -377,6 +377,28 @@ helm template hiqode ./hiqode-chart          # preview rendered YAML
 helm install hiqode ./hiqode-chart \
   --dry-run --debug                          # simulate install
 ```
+What it does
+It checks the Helm chart for errors and best practices.
+It validates things like:
+Chart.yaml structure
+YAML syntax
+Template formatting
+Required fields
+Chart naming rules
+Example Output
+
+What it does - "--dry-run --debug  "
+This simulates the installation without actually creating resources.
+It shows:
+•	Rendered Kubernetes YAML
+•	Release name
+•	Values used
+•	Debug information
+But nothing is deployed to the cluster.
+Simple Meaning
+It performs a fake installation to verify everything works correctly.
+
+
 
 ### Install
 
