@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-deployment
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: payment-app
+spec:
+  replicas: {{ .Values.payment.replicas }}
+  selector:
+    matchLabels:
+      app: payment-app
+  template:
+    metadata:
+      labels:
+        app: payment-app
+    spec:
+      containers:
+        - name: payment-app
+          image: {{ .Values.registry }}/{{ .Values.payment.image }}:{{ .Values.payment.tag }}
+          ports:
+            - containerPort: {{ .Values.payment.port }}
+          resources:
+            requests:
+              cpu: {{ .Values.payment.resources.requests.cpu }}
+              memory: {{ .Values.payment.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.payment.resources.limits.cpu }}
+              memory: {{ .Values.payment.resources.limits.memory }}

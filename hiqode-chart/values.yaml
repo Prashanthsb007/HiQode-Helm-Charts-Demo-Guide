@@ -1,0 +1,54 @@
+# hiqode-chart/values.yaml
+
+namespace: hiqode
+
+# AWS ECR Registry
+registry: 865189140490.dkr.ecr.us-east-1.amazonaws.com
+
+# Login App
+login:
+  image: login-app
+  tag: v3
+  replicas: 2
+  port: 80
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "100m"
+      memory: "128Mi"
+
+# Order App
+order:
+  image: order-app
+  tag: v3
+  replicas: 2
+  port: 80
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "100m"
+      memory: "128Mi"
+
+# Payment App
+payment:
+  image: payment-app
+  tag: v3
+  replicas: 2
+  port: 80
+  resources:
+    requests:
+      cpu: "50m"
+      memory: "64Mi"
+    limits:
+      cpu: "100m"
+      memory: "128Mi"
+
+# Ingress / ALB
+ingress:
+  scheme: internet-facing
+  targetType: ip
+  healthcheckPath: /

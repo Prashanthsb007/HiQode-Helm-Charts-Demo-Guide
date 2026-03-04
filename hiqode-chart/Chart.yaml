@@ -1,0 +1,7 @@
+# hiqode-chart/Chart.yaml
+apiVersion: v2
+name: hiqode-chart
+description: HiQode 3-app Kubernetes Ingress Demo
+type: application
+version: 1.0.0
+appVersion: "1.0.0"

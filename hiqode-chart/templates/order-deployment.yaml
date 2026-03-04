@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-deployment
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: order-app
+spec:
+  replicas: {{ .Values.order.replicas }}
+  selector:
+    matchLabels:
+      app: order-app
+  template:
+    metadata:
+      labels:
+        app: order-app
+    spec:
+      containers:
+        - name: order-app
+          image: {{ .Values.registry }}/{{ .Values.order.image }}:{{ .Values.order.tag }}
+          ports:
+            - containerPort: {{ .Values.order.port }}
+          resources:
+            requests:
+              cpu: {{ .Values.order.resources.requests.cpu }}
+              memory: {{ .Values.order.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.order.resources.limits.cpu }}
+              memory: {{ .Values.order.resources.limits.memory }}

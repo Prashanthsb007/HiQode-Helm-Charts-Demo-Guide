@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-deployment
+  namespace: {{ .Values.namespace }}
+  labels:
+    app: login-app
+spec:
+  replicas: {{ .Values.login.replicas }}
+  selector:
+    matchLabels:
+      app: login-app
+  template:
+    metadata:
+      labels:
+        app: login-app
+    spec:
+      containers:
+        - name: login-app
+          image: {{ .Values.registry }}/{{ .Values.login.image }}:{{ .Values.login.tag }}
+          ports:
+            - containerPort: {{ .Values.login.port }}
+          resources:
+            requests:
+              cpu: {{ .Values.login.resources.requests.cpu }}
+              memory: {{ .Values.login.resources.requests.memory }}
+            limits:
+              cpu: {{ .Values.login.resources.limits.cpu }}
+              memory: {{ .Values.login.resources.limits.memory }}
