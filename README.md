@@ -59,6 +59,9 @@ helm version
 ```bash
 helm create hiqode-chart
 
+# check the folder struture
+tree
+
 # Remove default boilerplate templates
 rm -rf hiqode-chart/templates/*
 ```
