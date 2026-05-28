@@ -58,6 +58,7 @@ helm version
 
 ```bash
 helm create hiqode-chart
+helm create my-chart
 
 # check the folder struture
 tree
