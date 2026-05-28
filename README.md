@@ -57,14 +57,15 @@ helm version
 ## 📦 Step 2 — Create the Chart Scaffold
 
 ```bash
-helm create hiqode-chart
+# helm create hiqode-chart
 helm create my-chart
 
 # check the folder struture
 tree
 
 # Remove default boilerplate templates
-rm -rf hiqode-chart/templates/*
+# rm -rf hiqode-chart/templates/*
+rm -rf my-chart/templates/*
 ```
 
 ---
