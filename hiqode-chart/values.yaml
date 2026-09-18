@@ -9,7 +9,7 @@ registry: 865189140490.dkr.ecr.us-east-1.amazonaws.com
 login:
   image: login-app
   tag: v1
-  replicas: 2
+  replicas: 5
   port: 80
   resources:
     requests:
@@ -23,7 +23,7 @@ login:
 order:
   image: order-app
   tag: v1
-  replicas: 2
+  replicas: 4
   port: 80
   resources:
     requests:
@@ -37,7 +37,7 @@ order:
 payment:
   image: payment-app
   tag: v1
-  replicas: 2
+  replicas: 3
   port: 80
   resources:
     requests:
